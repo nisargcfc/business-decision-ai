@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# 🤖 Business Decision AI Agent
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A sophisticated multi-agent AI system that helps businesses make data-driven decisions through intelligent analysis and strategic recommendations.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+### 🧠 Multi-Agent Architecture
+- **Research Agent** 🔍 - Market & Industry Analysis
+- **Analysis Agent** 📊 - Risk & Opportunity Assessment  
+- **Strategy Agent** 🎯 - Action Plan Generation
+- **Validation Agent** ✅ - Quality Assurance & Validation
 
-### `npm start`
+### 🚀 Key Capabilities
+- **Intelligent Business Analysis** - AI-powered market research and competitor analysis
+- **Risk Assessment** - Comprehensive risk and opportunity evaluation
+- **Strategic Planning** - Data-driven action plans with KPIs
+- **Real-time Processing** - Live agent status updates and progress tracking
+- **Fallback System** - Graceful handling of API failures with sample data
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🛠️ Technical Stack
+- **Frontend**: React 18, Tailwind CSS
+- **AI Integration**: Claude 3.5 Sonnet API
+- **Deployment**: Vercel
+- **Styling**: Modern UI with responsive design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🎮 Example Scenarios
 
-### `npm test`
+### Scenario 1: AI/SaaS Business
+- **Business Goal**: Launch AI-powered customer support platform for European SMBs
+- **Industry**: SaaS
+- **Budget**: €300K - €500K
+- **Timeline**: 9 months
+- **Constraints**: Small team of 8 people, must comply with GDPR, limited marketing budget, need to compete with established players like Zendesk
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Scenario 2: Healthcare AI
+- **Business Goal**: Launch AI diagnostic tool for radiology departments in Irish hospitals
+- **Industry**: Healthcare
+- **Budget**: €800K - €1.2M
+- **Timeline**: 18 months
+- **Constraints**: Medical device regulations, data privacy requirements, need clinical validation studies, limited hospital budgets
 
-### `npm run build`
+## 🚀 Quick Start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
+- Anthropic API key (optional - works with fallback data)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/business-decision-ai.git
 
-### `npm run eject`
+# Navigate to project directory
+cd business-decision-ai
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Install dependencies
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Start development server
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Environment Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `.env.local` file in the root directory:
 
-## Learn More
+```env
+REACT_APP_ANTHROPIC_API_KEY=your_anthropic_api_key_here
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Note**: The app works without an API key using fallback data for demonstration purposes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎮 How to Use
 
-### Code Splitting
+1. **Enter Business Context**:
+   - Business Goal
+   - Industry
+   - Budget
+   - Timeline
+   - Constraints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Watch AI Agents Work**:
+   - Research Agent analyzes market conditions
+   - Analysis Agent assesses risks and opportunities
+   - Strategy Agent creates action plans
+   - Validation Agent ensures quality
 
-### Analyzing the Bundle Size
+3. **Get Comprehensive Results**:
+   - Market analysis with competitor insights
+   - Risk assessment with mitigation strategies
+   - Strategic recommendations with KPIs
+   - Validation feedback and improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🏗️ Architecture
 
-### Making a Progressive Web App
+```
+Input → Research Agent → Analysis Agent → Strategy Agent → Validation Agent → Results
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Each agent operates independently with specialized prompts and structured JSON output, creating a robust decision-making pipeline.
 
-### Advanced Configuration
+## 🔧 Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Available Scripts
 
-### Deployment
+- `npm start` - Start development server
+- `npm run build` - Build for production
+- `npm test` - Run tests
+- `npm run eject` - Eject from Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Project Structure
 
-### `npm run build` fails to minify
+```
+src/
+├── App.js          # Main application with multi-agent logic
+├── App.css         # Custom styles
+├── index.js        # React entry point
+└── index.css       # Tailwind CSS imports
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🌟 Agent Development Skills Demonstrated
+
+- **Multi-Agent System Design** - Coordinated AI agents with specialized roles
+- **API Integration** - Robust error handling and fallback systems
+- **State Management** - Complex agent status tracking and workflow orchestration
+- **User Experience** - Real-time progress updates and intuitive interface
+- **Production Ready** - Environment variable handling, build optimization, deployment
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).

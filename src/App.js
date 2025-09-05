@@ -72,62 +72,50 @@ const BusinessDecisionAI = () => {
 
   const [agentStatuses, setAgentStatuses] = useState(agents);
 
-  // Production-ready API function with proper error handling
-  const callClaudeAPI = async (prompt, agentType) => {
-    const apiKey = process.env.REACT_APP_ANTHROPIC_API_KEY;
+// Production-ready API function with proper error handling
+const callClaudeAPI = async (prompt, agentType) => {
+  console.log(`🤖 ${agentType} Agent: Starting API call`);
+  
+  try {
+    console.log('📤 Sending request to backend proxy...');
     
-    if (!apiKey) {
-      console.warn('API key not found, using fallback data');
-      return getFallbackResponse(agentType);
+    // Use your own API endpoint instead of direct Claude API
+    const response = await fetch("/api/claude", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: prompt
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error(`Backend API Error ${response.status}:`, errorData);
+      console.log('🔄 Switching to fallback data due to API error');
+      throw new Error(`Backend API error: ${response.status}`);
     }
 
-    try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01"
-        },
-        body: JSON.stringify({
-          model: "claude-3-5-sonnet-20241022",
-          max_tokens: 1000,
-          messages: [
-            { role: "user", content: prompt }
-          ]
-        })
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error(`API Error ${response.status}:`, errorData);
-        
-        // Handle specific error cases
-        if (response.status === 429) {
-          throw new Error('Rate limit exceeded');
-        } else if (response.status === 401) {
-          throw new Error('Invalid API key');
-        } else if (response.status === 400) {
-          throw new Error('Invalid request format');
-        }
-        
-        throw new Error(`API request failed: ${response.status}`);
-      }
-
-      const data = await response.json();
-      
-      if (!data.content || !data.content[0] || !data.content[0].text) {
-        throw new Error('Invalid API response format');
-      }
-
-      return data.content[0].text;
-    } catch (error) {
-      console.error(`Error in ${agentType}:`, error.message);
-      
-      // Graceful fallback to mock data
-      return getFallbackResponse(agentType);
+    const data = await response.json();
+    
+    if (!data.content || !data.content[0] || !data.content[0].text) {
+      console.error('📨 Invalid API response format:', data);
+      throw new Error('Invalid API response format');
     }
-  };
+
+    console.log(`✅ SUCCESS: ${agentType} Agent received real API response`);
+    console.log('📊 Response length:', data.content[0].text.length, 'characters');
+    
+    return data.content[0].text;
+  } catch (error) {
+    console.error(`❌ Error in ${agentType}:`, error.message);
+    console.log(`🔄 Using fallback data for ${agentType} agent`);
+    
+    // Graceful fallback to mock data
+    return getFallbackResponse(agentType);
+  }
+};
 
   // Fallback responses for when API fails
   const getFallbackResponse = (agentType) => {

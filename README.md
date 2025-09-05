@@ -46,6 +46,24 @@ A sophisticated multi-agent AI system that helps businesses make data-driven dec
 - npm or yarn
 - Anthropic API key (optional - works with fallback data)
 
+### ⚠️ Fixing Vercel Deployment Issues (401 & 404 Errors)
+
+If you're experiencing:
+- `401 Unauthorized` errors for manifest.json
+- `404 Not Found` errors for /api/claude
+
+**Solution:**
+1. **Update vercel.json** - Already done with proper build configuration
+2. **Set Environment Variable in Vercel Dashboard:**
+   - Go to your project settings in Vercel
+   - Navigate to "Environment Variables"
+   - Add `ANTHROPIC_API_KEY` with your actual API key
+   - Ensure it's enabled for all environments
+3. **Redeploy:**
+   ```bash
+   vercel --prod --force
+   ```
+
 ### Installation
 
 ```bash

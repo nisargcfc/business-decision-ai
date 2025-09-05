@@ -1,7 +1,23 @@
 {
-    "functions": {
-      "api/claude.js": {
-        "maxDuration": 30
-      }
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
+  ],
+  "functions": {
+    "api/claude.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "ANTHROPIC_API_KEY": "@anthropic-api-key"
   }
+}

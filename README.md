@@ -19,7 +19,7 @@ A sophisticated multi-agent AI system that helps businesses make data-driven dec
 
 ### 🛠️ Technical Stack
 - **Frontend**: React 18, Tailwind CSS
-- **AI Integration**: Claude 3.5 Sonnet API
+- **AI Integration**: Claude Sonnet API
 - **Deployment**: Vercel
 - **Styling**: Modern UI with responsive design
 
@@ -44,25 +44,7 @@ A sophisticated multi-agent AI system that helps businesses make data-driven dec
 ### Prerequisites
 - Node.js 16+ 
 - npm or yarn
-- Anthropic API key (optional - works with fallback data)
-
-### ⚠️ Fixing Vercel Deployment Issues (401 & 404 Errors)
-
-If you're experiencing:
-- `401 Unauthorized` errors for manifest.json
-- `404 Not Found` errors for /api/claude
-
-**Solution:**
-1. **Update vercel.json** - Already done with proper build configuration
-2. **Set Environment Variable in Vercel Dashboard:**
-   - Go to your project settings in Vercel
-   - Navigate to "Environment Variables"
-   - Add `ANTHROPIC_API_KEY` with your actual API key
-   - Ensure it's enabled for all environments
-3. **Redeploy:**
-   ```bash
-   vercel --prod --force
-   ```
+- API key (optional - works with fallback data)
 
 ### Installation
 
@@ -85,7 +67,7 @@ npm start
 Create a `.env.local` file in the root directory:
 
 ```env
-REACT_APP_ANTHROPIC_API_KEY=your_anthropic_api_key_here
+REACT_APP_API_KEY=your_api_key_here
 ```
 
 **Note**: The app works without an API key using fallback data for demonstration purposes.
